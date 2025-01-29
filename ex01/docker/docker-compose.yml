@@ -1,0 +1,12 @@
+---
+version: '3.8'
+services:
+  flask:
+    build: ./example-flask
+    ports:
+      - "5000:5000"
+  redis:
+    image: redis:alpine
+networks:
+  privnet:
+    driver: custom-drive-1
