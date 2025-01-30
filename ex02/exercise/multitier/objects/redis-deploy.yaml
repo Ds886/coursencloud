@@ -15,6 +15,14 @@ spec:
       labels:
         app: ex02-multitier-redis
     spec:
+      # initContainers:
+      # - name: init-config
+      #   image: busybox:1.28
+      #   command: ["sh", "-c",  "'cp /redis-master-raw/redis.conf /redis-master/redis.conf && echo require-pass\ $REDIS_PASS >>/redis-master/redis.conf'"]
+      #   resources:
+      #     requests:
+      #       cpu: 20m
+      #       memory: 50Mi
       containers:
       - name: redis
         image: redis:7.4
@@ -34,9 +42,6 @@ spec:
           timeoutSeconds: 5
         command:
           - redis-server
-          - \-
-          - require-pass
-          - "$(REDIS_PASS)"
         readinessProbe:
           exec:
             command:
@@ -54,7 +59,7 @@ spec:
         volumeMounts:
            - mountPath: /redis-master-data
              name: data
-           - mountPath: /redis-master
+           - mountPath: /redis-master-raw
              name: config
 
       volumes:

@@ -5,5 +5,5 @@ metadata:
   name: ex02-multititier-rq
 spec:
   hard:
-    cpu: 2000m
+    cpu: 3000m
     memory: 3Gi
