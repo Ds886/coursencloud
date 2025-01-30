@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ex02-multitier-redis-config-cm
+  labels:
+    app: ex02-multitier-redis
+data:
+  redis-config: ""
+
