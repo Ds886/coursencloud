@@ -1,0 +1,7 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: flask-ns-flask-cm
+data:
+  test: "myCM"
